@@ -55,9 +55,7 @@ On first run, you'll need to configure access to both APIs:
    - Reload the page (F5)
    - **Select any request to music.youtube.com in the list** (preferably the first one)
    - **Right-click on the request and select "Copy" → "Copy Request Headers"**
-   
-   ![Example of how to copy headers](https://i.imgur.com/IYjTUGI.png)
-   
+
 3. Return to the terminal/command prompt window where the script is running
 4. **Paste the copied headers** and press:
    - Windows: press ENTER, then CTRL+Z, then ENTER again
