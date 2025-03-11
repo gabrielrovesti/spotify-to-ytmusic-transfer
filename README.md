@@ -1,137 +1,137 @@
 # Spotify to YouTube Music Transfer
 
-Uno script semplice per trasferire le tue playlist da Spotify a YouTube Music.
+A simple script to transfer your playlists from Spotify to YouTube Music.
 
-## Requisiti
+## Requirements
 
-- Python 3.8 o superiore (testato con Python 3.9)
-- Account Spotify
-- Account YouTube/Google
-- Browser Firefox (necessario per l'autenticazione a YouTube Music)
+- Python 3.8 or higher (tested with Python 3.9)
+- Spotify account
+- YouTube/Google account
+- Firefox browser (needed for YouTube Music authentication)
 
-## Istruzioni Rapide
+## Quick Instructions
 
 ### Windows
 
-1. Scarica tutti i file nella stessa cartella
-2. Fai doppio clic su `run-spotify-transfer.bat`
-3. Segui le istruzioni a schermo
+1. Download all files to the same folder
+2. Double-click on `run-spotify-transfer.bat`
+3. Follow the on-screen instructions
 
 ### Linux/Mac
 
-1. Scarica tutti i file nella stessa cartella
-2. Apri il terminale nella cartella dei file
-3. Rendi lo script eseguibile: `chmod +x run-spotify-transfer.sh`
-4. Esegui lo script: `./run-spotify-transfer.sh`
-5. Segui le istruzioni a schermo
+1. Download all files to the same folder
+2. Open terminal in the files folder
+3. Make the script executable: `chmod +x run-spotify-transfer.sh`
+4. Run the script: `./run-spotify-transfer.sh`
+5. Follow the on-screen instructions
 
 ## Setup
 
-Al primo avvio, dovrai configurare l'accesso alle API:
+On first run, you'll need to configure access to both APIs:
 
 ### Spotify API
 
-1. Vai su https://developer.spotify.com/dashboard/
-2. Accedi con il tuo account Spotify
-3. Crea una nuova applicazione:
-   - Clicca su "Create app"
-   - Inserisci un nome (es. "SpotifyToYTMusic")
-   - Inserisci una descrizione
-   - Inserisci `http://localhost` come "Redirect URI"
-   - Seleziona "Web API" come API da utilizzare
-   - Accetta i termini di servizio
-4. Nella dashboard dell'app, copia il "Client ID" e "Client Secret"
-5. Inserisci questi valori quando richiesti dallo script
+1. Go to https://developer.spotify.com/dashboard/
+2. Log in with your Spotify account
+3. Create a new application:
+   - Click "Create app"
+   - Enter a name (e.g., "SpotifyToYTMusic")
+   - Enter a description
+   - Enter `http://localhost` as the "Redirect URI"
+   - Select "Web API" as the API to use
+   - Accept the terms of service
+4. In the app dashboard, copy the "Client ID" and "Client Secret"
+5. Enter these values when prompted by the script
 
-### YouTube Music (Guida dettagliata)
+### YouTube Music (Detailed Guide)
 
-1. Quando lo script chiede "Inserisci il percorso dove salvare il file di autenticazione", premi semplicemente INVIO per usare il percorso predefinito
+1. When the script asks "Enter the path to save the authentication file", simply press ENTER to use the default path
 
-2. **Importante: Istruzioni per ottenere le intestazioni di autenticazione:**
-   - Apri Firefox (è necessario usare Firefox)
-   - Vai a https://music.youtube.com e assicurati di aver effettuato l'accesso
-   - Premi F12 per aprire gli Strumenti di sviluppo
-   - Seleziona la scheda "Rete" (Network)
-   - Ricarica la pagina (F5)
-   - **Seleziona qualsiasi richiesta verso music.youtube.com nella lista** (preferibilmente la prima)
-   - **Fai clic destro sulla richiesta e seleziona "Copia" → "Copia header richiesta"** (o "Copy Request Headers")
+2. **Important: Instructions to get authentication headers:**
+   - Open Firefox (Firefox is required)
+   - Go to https://music.youtube.com and make sure you're logged in
+   - Press F12 to open Developer Tools
+   - Select the "Network" tab
+   - Reload the page (F5)
+   - **Select any request to music.youtube.com in the list** (preferably the first one)
+   - **Right-click on the request and select "Copy" → "Copy Request Headers"**
    
-   ![Esempio di come copiare gli headers](https://i.imgur.com/IYjTUGI.png)
+   ![Example of how to copy headers](https://i.imgur.com/IYjTUGI.png)
    
-3. Torna alla finestra del terminale/prompt dei comandi dove è in esecuzione lo script
-4. **Incolla le intestazioni copiate** e premi:
-   - Windows: premi INVIO, poi CTRL+Z, poi INVIO di nuovo
-   - Mac/Linux: premi INVIO, poi CTRL+D, poi INVIO di nuovo
+3. Return to the terminal/command prompt window where the script is running
+4. **Paste the copied headers** and press:
+   - Windows: press ENTER, then CTRL+Z, then ENTER again
+   - Mac/Linux: press ENTER, then CTRL+D, then ENTER again
 
-Se hai problemi con questo metodo di autenticazione, puoi in alternativa:
-1. Accedere a YouTube Music nel browser
-2. Aprire gli strumenti di sviluppo (F12)
-3. Andare nella scheda "Applicazione" o "Storage"
-4. Copiare manualmente i cookie dal dominio music.youtube.com
+If you have problems with this authentication method, you can alternatively:
+1. Log in to YouTube Music in the browser
+2. Open developer tools (F12)
+3. Go to the "Application" or "Storage" tab
+4. Manually copy the cookies from the music.youtube.com domain
 
-## Utilizzo
+## Usage
 
-Dopo la configurazione iniziale, puoi eseguire lo script in uno dei seguenti modi:
+After the initial configuration, you can run the script in one of the following ways:
 
-### Con l'interfaccia grafica
+### With the graphical interface
 
-- Windows: doppio clic su `run-spotify-transfer.bat`
-- Linux/Mac: doppio clic su `run-spotify-transfer.sh` (se il sistema lo supporta) o eseguilo da terminale
+- Windows: double-click on `run-spotify-transfer.bat`
+- Linux/Mac: double-click on `run-spotify-transfer.sh` (if your system supports it) or run it from terminal
 
-### Con l'URL come parametro
+### With the URL as a parameter
 
 - Windows: `run-spotify-transfer.bat https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M`
 - Linux/Mac: `./run-spotify-transfer.sh https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M`
 
-## Opzioni avanzate
+## Advanced Options
 
-Se vuoi utilizzare opzioni aggiuntive, puoi eseguire direttamente lo script Python:
+If you want to use additional options, you can run the Python script directly:
 
 ```
-python spotify_to_youtube.py URL_PLAYLIST [opzioni]
+python spotify_to_youtube.py PLAYLIST_URL [options]
 ```
 
-Opzioni disponibili:
-- `--name`: Nome personalizzato per la playlist su YouTube Music
-- `--privacy`: Imposta la privacy della playlist ("PUBLIC", "PRIVATE", "UNLISTED")
-- `--config`: Percorso personalizzato per il file di configurazione
+Available options:
+- `--name`: Custom name for the YouTube Music playlist
+- `--privacy`: Set the playlist privacy ("PUBLIC", "PRIVATE", "UNLISTED")
+- `--config`: Custom path for the configuration file
 
-Esempio:
+Example:
 ```
-python spotify_to_youtube.py https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M --name "La mia playlist" --privacy PUBLIC
+python spotify_to_youtube.py https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M --name "My playlist" --privacy PUBLIC
 ```
 
-## Risoluzione problemi
+## Troubleshooting
 
-### Errore durante l'autenticazione a YouTube Music
+### Error during YouTube Music authentication
 
-Se ricevi errori durante l'autenticazione:
-1. Assicurati di essere loggato a YouTube Music nel browser
-2. Prova a usare il browser in modalità normale (non in incognito)
-3. Disabilita temporaneamente eventuali estensioni di blocco pubblicità o VPN
-4. Se continui ad avere problemi, prova a usare Chrome anziché Firefox (modifica il README in base al browser utilizzato)
+If you receive errors during authentication:
+1. Make sure you're logged in to YouTube Music in the browser
+2. Try using the browser in normal mode (not incognito)
+3. Temporarily disable any ad-blockers or VPNs
+4. If you continue to have problems, try using Chrome instead of Firefox (modify the README based on the browser used)
 
-### Errore "No module named 'spotipy'" o "No module named 'ytmusicapi'"
+### Error "No module named 'spotipy'" or "No module named 'ytmusicapi'"
 
-Esegui manualmente:
+Run manually:
 ```
 pip install spotipy ytmusicapi
 ```
 
-### Python non trovato o versione sbagliata
+### Python not found or wrong version
 
-Gli script cercheranno automaticamente Python sul tuo sistema. Se hai problemi:
+The scripts will automatically search for Python on your system. If you have problems:
 
-1. Verifica che Python 3.8+ sia installato con `python --version` o `python3 --version`
-2. Se hai più versioni installate, specifica manualmente il percorso nel file .bat/.sh o usa:
+1. Verify that Python 3.8+ is installed with `python --version` or `python3 --version`
+2. If you have multiple versions installed, manually specify the path in the .bat/.sh file or use:
    ```
-   /percorso/completo/a/python spotify_to_youtube.py URL_PLAYLIST
+   /complete/path/to/python spotify_to_youtube.py PLAYLIST_URL
    ```
 
-### Credenziali salvate
+### Saved credentials
 
-Le credenziali vengono salvate in:
-- Spotify API: nel file di configurazione (`~/spotify_ytmusic_config.json`)
-- YouTube Music: nel file di autenticazione (`headers_auth.json` nella cartella dello script)
+Credentials are saved in:
+- Spotify API: in the configuration file (`~/spotify_ytmusic_config.json`)
+- YouTube Music: in the authentication file (`headers_auth.json` in the script folder)
 
-Per reimpostare l'autenticazione, elimina questi file.
+To reset the authentication, delete these files.
